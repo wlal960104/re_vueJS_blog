@@ -1,10 +1,11 @@
 <template>
 <main>
+  <h4> 블로그 리스트 </h4>
   <div class="album py-5">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div v-for="(data,i) in list" :key="i" class="col">
-          <div class="card shadow-sm">
+          <div @click="$router.push(`/detail/${i}`)" class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div class="card-body">
               <p class="card-text">{{data.title}}</p>
@@ -30,6 +31,14 @@ export default {
   name : 'List',
   props : {
     list : Array
+  },
+  beforeRouteEnter() {
+    console.log('[List.vue] beforeRouteEnter :::')
+
+
+  },
+  beforeRouteUpdate() {
+    console.log('[List.vue] beforeRouteUpdate :::');
   }
 }
 </script>
@@ -85,23 +94,6 @@ export default {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-}
-
-.btn-bd-primary {
-  --bd-violet-bg: #712cf9;
-  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-  --bs-btn-font-weight: 600;
-  --bs-btn-color: var(--bs-white);
-  --bs-btn-bg: var(--bd-violet-bg);
-  --bs-btn-border-color: var(--bd-violet-bg);
-  --bs-btn-hover-color: var(--bs-white);
-  --bs-btn-hover-bg: #6528e0;
-  --bs-btn-hover-border-color: #6528e0;
-  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-  --bs-btn-active-color: var(--bs-btn-hover-color);
-  --bs-btn-active-bg: #5a23c8;
-  --bs-btn-active-border-color: #5a23c8;
 }
 
 .bd-mode-toggle {

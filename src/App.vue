@@ -30,7 +30,6 @@
 </template>
 
 <script>
-// import List from "@/components/List.vue";
 import blogList from "@/assets/blogList";
 
 export default {
@@ -41,7 +40,6 @@ export default {
     }
   },
   components: {
-    // List
   }
 }
 </script>
